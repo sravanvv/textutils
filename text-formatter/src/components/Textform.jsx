@@ -18,7 +18,7 @@ export default function Textform(props) {
     };
   }
     const [text,setText]=useState('Enter text here');
-    const [results, setResults] = useState({ vowels: 0, consonants: 0 });
+    const [results, setResults] = useState(text);
     
     //UpperCase
    const handleupclick =()=>{
@@ -61,7 +61,22 @@ const handleSpaces = () => {
   let newText = text.split(/[ ]+/);
   setText(newText.join(" "));
 };
-       
+
+const handleRemoveSpecialCharacters = () => {
+  let newText = text.replace(/[^a-zA-Z0-9 ]/g, '');
+     setText(newText);
+};
+
+const handleExtractNumbers = () => {
+  const digits = text.match(/[0-9]/g);
+  if (digits === null) {
+   let newText= '';
+    setText(newText);
+  } else {
+    let newText= digits.join('');
+    setText(newText);
+  }
+};
   return (
     <div>
       <div className='box'>
@@ -74,6 +89,9 @@ const handleSpaces = () => {
   <button className='btn btn-info mx-2 my-1' onClick={handleupclick3} id='ClearButton'>Clear Text</button>
   <button className='btn btn-primary mx-2 my-1' onClick={handleSpaces} id='SpaceButton'>Clear Extra Spaces</button>
   <button className='btn btn-success mx-2 my-1' onClick={handleCopy} id='CopyButton'>Copy Text</button>
+  <button className='btn btn-info mx-2 my-1' onClick={handleRemoveSpecialCharacters} id='ClearButton'>Remove Special Characters</button>
+  <button className='btn btn-secondary mx-2 my-1' onClick={handleExtractNumbers} id='ClearButton'>Extract Numbers</button>
+
 </div>
 <div className='mx-3 my-1'>
 <h2 >Your Text Summary</h2>
@@ -87,7 +105,6 @@ are {results.vowels} and number of consonants are {results.consonants}.
 <footer>
             <div className='textfooter'>
            <p id='abfop'> @ Text Utilis Website @ </p>
-
             </div>
         </footer>
     </div>
