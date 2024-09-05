@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
-
+import {useNavigate} from 'react-router-dom';
 export default function Textform(props) {
+  const navigate=useNavigate(); 
   function countVowelsAndConsonants(text) {
     text = text.toString().toLowerCase();
     let vowelCount = 0;
@@ -105,8 +106,15 @@ are {results.vowels} and number of consonants are {results.consonants}.
 <footer>
             <div className='textfooter'>
            <p id='abfop'> @ Text Utilis Website @ </p>
+           <a  id='abfopnav' onClick={()=> {
+          navigate("/");}} >Home</a>
+          <a id='abfopnav' onClick={()=> {
+          navigate("/about");
+        }}>About</a>
+            <p id='abfop'>Made by Sravan </p>
             </div>
         </footer>
+        <script></script>
     </div>
   )
 }

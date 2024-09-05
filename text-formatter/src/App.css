@@ -1,3 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+body{
+  margin: 0;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+html {
+  font-family: Poppins;
+  color: #f0f0f0;
+}
+.container-fluid{
+  display: flex;
+  justify-content: center;
+  /* background: white;  */
+  background: #1c1f2b;
+  position: relative;
+  margin-top: 20px;
+  padding: 0.8em;
+  width: 95%;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.container-fluid::after, .container-fluid::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 2.5em;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+.container-fluid::before {
+  filter: blur(1rem);
+  opacity: 0.3;
+}
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
 .box{
   padding: 0.5em;
 }
@@ -64,7 +121,7 @@ padding: 0.5em;
   font-size: large;
   font-style: italic;
   font-family: 'Courier New', Courier, monospace;
-  font-weight: 200;
+  font-weight: 500;
 }
 #abol{
   margin: 1em;
@@ -80,7 +137,7 @@ padding: 0.5em;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 5em;
+  height: 6em;
   color: white;
   text-align: center;
 }
@@ -90,12 +147,35 @@ padding: 0.5em;
   left: 0;
   bottom: -1em;
   width: 100%;
-  height: 5em;
+  height: 6em;
   color: white;
   text-align: center;
 }
 #abfop{
   text-align: center;
+}
+.navbar-brand{
+  margin: 0 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.nav-link{
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s;
+}
+.nav-link:hover,.navbar-brand:hover{
+  color: #007BFF;
+}
+.nav-link.active {
+  color: #007BFF;
+  font-weight: 600;
+}
+#abfopnav{
+  margin: 1em;
 }
 /* .accentclick{
   animation: mymove 3s infinite;
