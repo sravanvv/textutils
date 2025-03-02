@@ -6,11 +6,14 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://textutils-textformatter.vercel.app/</loc>
   <lastmod>2024-08-31T01:51:19+00:00</lastmod>
 </url>
 
+<!-- Reference to robots.txt -->
+<url>
+  <loc>https://textutils-textformatter.vercel.app/robots.txt</loc>
+</url>
 
 </urlset>
